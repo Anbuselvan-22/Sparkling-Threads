@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sparkling Threads | Luxury Aari Work</title>
+
+  <!-- FavIcons -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpeg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/logo.jpeg" />
+
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --deep-plum: #2b102f;
+      --rose-gold: #f7c6a2;
+      --teal: #19b7a5;
+      --ivory: #fff8f0;
+      --charcoal: #141418;
+      --soft-pink: #ffdde6;
+      --card-bg: rgba(20, 7, 35, 0.92);
+      --glass: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(247, 198, 162, 0.7);
+      --accent-number: #f7c6a2;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #3b163f 0, #050309 45%, #050309 100%);
+      color: #f9f1ff;
+      scroll-behavior: smooth;
+    }
+
+    a { text-decoration: none; }
+
+    .text-muted {
+      color: #d3d3d3 !important;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(90deg, #050309 0, #2b102f 60%, #050309 100%);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--glass);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand span.logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffffff 0, #f7c6a2 40%, #b26bff 100%);
+      box-shadow: 0 0 18px rgba(247, 198, 162, 0.6);
+      margin-right: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-mark .logo-img {
+      width: 80%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .navbar-brand .brand-text {
+      line-height: 1;
+      display: inline-block;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 400;
+      margin-inline: 4px;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rose-gold), var(--teal));
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after { width: 100%; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-block: 80px;
+      overflow: hidden;
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(247, 198, 162, 0.25), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(25, 183, 165, 0.22), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .badge-pill {
+      background: rgba(247, 198, 162, 0.1);
+      border-radius: 999px;
+      border: 1px solid var(--border-gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
+    .hero-title { font-size: clamp(2.5rem, 4vw, 3.4rem); line-height: 1.1; }
+    .hero-highlight {
+      background: linear-gradient(90deg, #f7c6a2, #ff81c0, #19b7a5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-subtitle { color: #f5e4ff; max-width: 540px; }
+    .btn-gradient {
+      background: linear-gradient(135deg, #f7c6a2, #ff81c0);
+      border: none;
+      color: #2b102f;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(247, 198, 162, 0.45);
+    }
+    .btn-outline-glass {
+      border-radius: 999px;
+      border: 1px solid var(--glass);
+      background: rgba(255, 255, 255, 0.02);
+      color: #f9f1ff;
+    }
+    .hero-stat {
+      border-radius: 16px;
+      background: rgba(5, 3, 9, 0.75);
+      border: 1px solid rgba(247, 198, 162, 0.28);
+      backdrop-filter: blur(16px);
+    }
+    .hero-number { color: var(--accent-number); }
+    .hero-image-wrap { position: relative; }
+    .hero-main-img {
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(247, 198, 162, 0.5);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(255, 255, 255, 0.07);
+    }
+    .floating-tag {
+      position: absolute;
+      right: 6%;
+      top: 3%;
+      background: rgba(5, 3, 9, 0.9);
+      border-radius: 999px;
+      padding: 8px 16px;
+      border: 1px solid rgba(250, 223, 185, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+    }
+    .glow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #19b7a5;
+      box-shadow: 0 0 10px #19b7a5;
+    }
+    .floating-card {
+      position: absolute;
+      left: -4%;
+      bottom: 8%;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 18px;
+      padding: 14px 18px;
+      border: 1px solid rgba(157, 115, 225, 0.7);
+      backdrop-filter: blur(18px);
+      max-width: 220px;
+      font-size: 0.78rem;
+    }
+
+    section { position: relative; z-index: 1; }
+    .section-title { font-size: 2rem; }
+    .section-subtitle { color: #d8c6ff; max-width: 520px; }
+
+    /* Services */
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 1px solid rgba(247, 198, 162, 0.25);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+      border-color: var(--rose-gold);
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(247, 198, 162, 0.35);
+      background: rgba(5, 3, 9, 0.7);
+      color: #ffe8d8;
+    }
+    .price-tag { font-weight: 600; color: var(--rose-gold); }
+
+    /* Gallery */
+    .filter-pill {
+      border-radius: 999px;
+      padding: 6px 16px;
+      border: 1px solid rgba(247, 198, 162, 0.35);
+      background: transparent;
+      color: #f9f1ff;
+      font-size: 0.8rem;
+      margin: 4px;
+    }
+    .filter-pill.active {
+      background: linear-gradient(120deg, #f7c6a2, #ff81c0);
+      color: #2b102f;
+      border-color: transparent;
+    }
+
+    /* make all cards same height */
+    .gallery-card {
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+      transform: translateX(40px);
+      opacity: 0;
+      transition: transform 0.6s ease-out, opacity 0.6s ease-out, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* body is flex column so price + button stick to bottom */
+    .gallery-card .card-body-fixed {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .gallery-card .card-body-fixed .card-text-wrap {
+      flex-grow: 1;
+    }
+
+    /* hover */
+    .gallery-card.visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .gallery-card:hover {
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+    }
+
+    .gallery-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-img-wrap img,
+    .gallery-img-wrap video {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+    .gallery-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .tag-badge {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(5, 3, 9, 0.75);
+      border: 1px solid rgba(247, 198, 162, 0.7);
+    }
+
+
+    /* Explore on Insta button */
+    .insta-explore-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      overflow: hidden;
+      background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+      background-size: 200% 200%;
+      background-position: 100% 0%;
+      box-shadow: 0 20px 52px rgba(0, 0, 0, 1);
+      filter: brightness(1.05);
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background-position 0.5s ease,
+        filter 0.3s ease;
+    }
+    .insta-explore-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.9);
+      border-color: rgba(0, 0, 0, 0.5);
+      background-position: 0% 50%;
+      filter: brightness(1);
+      text-decoration: none;
+    }
+    .insta-explore-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+    }
+    .insta-explore-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -40%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.55),
+        transparent
+      );
+      opacity: 0;
+      transform: skewX(-20deg);
+      transition: opacity 0.3s ease, transform 0.5s ease;
+    }
+    .insta-explore-btn:hover::before {
+      opacity: 1;
+      transform: translateX(220%) skewX(-20deg);
+    }
+    .insta-explore-btn > * {
+      position: relative;
+      z-index: 1;
+    }
+    .insta-explore-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.25);
+      box-shadow:
+        0 0 0 1px rgba(5, 3, 9, 0.7),
+        0 0 12px rgba(0, 0, 0, 0.7);
+      flex-shrink: 0;
+    }
+    .insta-explore-icon i { font-size: 0.95rem; }
+    .insta-explore-text { white-space: nowrap; }
+
+    /* About / Contact / Map / Footer styles and media queries */
+    .about-card {
+      background: rgba(5, 3, 9, 0.85);
+      border-radius: 24px;
+      border: 1px solid rgba(247, 198, 162, 0.3);
+      padding: 28px;
+      backdrop-filter: blur(18px);
+    }
+    .about-list li { margin-bottom: 10px; color: #f5e4ff; }
+
+    .contact-card {
+      background: rgba(5, 3, 9, 0.9);
+      border-radius: 24px;
+      border: 1px solid rgba(247, 198, 162, 0.35);
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+    }
+    .form-control,
+    .form-select {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(247, 198, 162, 0.35);
+      color: #f9f1ff;
+    }
+    .form-control:focus,
+    .form-select:focus {
+      box-shadow: 0 0 0 0.2rem rgba(247, 198, 162, 0.25);
+      border-color: var(--rose-gold);
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+
+    .map-wrapper {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(247, 198, 162, 0.4);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      border: 0;
+      min-height: 320px;
+    }
+
+    footer {
+      background: #050309;
+      border-top: 1px solid rgba(247, 198, 162, 0.22);
+      color: #f4e7ff;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.7s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 575.98px) {
+      .insta-explore-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.82rem;
+        padding-inline: 18px;
+      }
+      .insta-explore-text {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .hero { padding-top: 120px; }
+      .hero-main-img img {
+        height: 320px;
+        object-fit: cover;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#home">
+        <span class="logo-mark">
+          <img src="/images/WhatsApp Image 2025-12-14 at 11.58.17 AM.jpeg"
+               alt="Sparkling Threads logo"
+               class="logo-img" />
+        </span>
+        <span class="brand-text">Sparkling Threads</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-gradient"></div>
+    <div class="container hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <span class="badge badge-pill text-uppercase mb-3">
+            Luxury Aari Work • Chennai
+          </span>
+          <h1 class="hero-title mb-3">
+            <span class="hero-highlight">Sparkling Threads</span><br />
+            Handcrafted Aari Blouses for every story.
+          </h1>
+          <p class="hero-subtitle mb-4">
+            Premium bridal and simple Aari work with 100% unique designs, stitched and finished to perfection, inspired by modern silhouettes and motifs.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#contact" class="btn btn-gradient px-4 py-2 rounded-pill">
+              Book Custom Design
+              <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+            <a href="#gallery" class="btn btn-outline-glass px-4 py-2">
+              View Collection
+            </a>
+          </div>
+          <div class="row g-3 hero-stat p-3 mt-2">
+            <div class="col-4 text-center">
+              <div class="fw-semibold fs-5 hero-number">150+</div>
+              <small class="text-muted">Blouses crafted</small>
+            </div>
+            <div class="col-4 text-center">
+              <div class="fw-semibold fs-5 hero-number">5★</div>
+              <small class="text-muted">Client ratings</small>
+            </div>
+            <div class="col-4 text-center">
+              <div class="fw-semibold fs-5 hero-number">Chennai</div>
+              <small class="text-muted">Shipping</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 hero-image-wrap d-flex justify-content-center">
+          <div class="hero-main-img w-50">
+            <img src="/images/Screenshot 2025-12-12 at 1.06.20 PM.png" alt="Sparkling Threads Aari Work" class="img-fluid" />
+          </div>
+          <div class="floating-tag shadow-sm">
+            <span class="glow-dot"></span>
+            Trend Palette • Rose Gold • Teal • Plum
+          </div>
+          <div class="floating-card">
+            <div class="d-flex align-items-center mb-1">
+              <i class="fas fa-crown me-2 text-warning"></i>
+              <strong>Bridal Aari Capsule</strong>
+            </div>
+            <small class="d-block mb-1">
+              Zardosi, maggam, and 3D florals tailored to your lehenga & saree styling.
+            </small>
+            <small class="text-muted">From ₹4999 • 2–3 weeks</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-5">
+    <div class="container reveal">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+        <div>
+          <h2 class="section-title mb-2">Aari Services</h2>
+          <p class="section-subtitle mb-0">
+            From statement bridal blouses to minimal everyday pieces, every stitch is mapped to your body and occasion.
+          </p>
+        </div>
+        <span class="chip mt-3 mt-md-0">
+          <i class="fas fa-clock"></i>
+          1–3 weeks completion
+        </span>
+      </div>
+
+      <div class="row g-4">
+        <!-- Bridal -->
+        <div class="col-md-4">
+          <div class="service-card h-100 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:38px;height:38px;background:rgba(247,198,162,0.16);">
+                  <i class="fas fa-crown text-warning"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0">Bridal Aari Work</h5>
+                  <small class="text-muted">Zardosi • Maggam • 3D Florals</small>
+                </div>
+              </div>
+              <span class="badge bg-warning text-dark">Most Loved</span>
+            </div>
+            <p class="small text-muted mb-2">
+              Highly detailed sleeves, back motifs, and borders synced with your saree palette.
+            </p>
+            <p class="mt-4">
+              <span class="price-tag">From ₹4999</span>
+              <span class="text-muted small ms-1">/ bridal blouse</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Simple Aari -->
+        <div class="col-md-4">
+          <div class="service-card h-100 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:38px;height:38px;background:rgba(25,183,165,0.18);">
+                  <i class="fas fa-feather text-info"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0">Simple Aari Work</h5>
+                  <small class="text-muted">Daily • Office • Festive</small>
+                </div>
+              </div>
+            </div>
+            <p class="small text-muted mb-2">
+              Clean, elegant necklines and sleeve detailing that pair with any saree or skirt.
+            </p>
+            <p class="mt-4">
+              <span class="price-tag">From ₹1499</span>
+              <span class="text-muted small ms-1">/ blouse</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Kids / Concept -->
+        <div class="col-md-4">
+          <div class="service-card h-100 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:38px;height:38px;background:rgba(255,221,230,0.22);">
+                  <i class="fas fa-child text-pink"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0">Kids & Concept Wear</h5>
+                  <small class="text-muted">Maggam • Theme • Matching</small>
+                </div>
+              </div>
+              <span class="badge bg-info text-dark">New</span>
+            </div>
+            <p class="small text-muted mb-2">
+              Playful motifs, names, and characters with soft linings for kids and coordinated sets.
+            </p>
+            <p class="mt-4">
+              <span class="price-tag">From ₹999</span>
+              <span class="text-muted small ms-1">/ set</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Gallery with Instagram post images -->
+  <section id="gallery" class="py-5">
+    <div class="container reveal">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+        <div>
+          <h2 class="section-title mb-2">Aari Gallery</h2>
+          <p class="section-subtitle mb-0">
+            Preview styles :
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="bridal">Bridal</button>
+        <button class="filter-pill" data-filter="minimal">Minimal</button>
+        <button class="filter-pill" data-filter="kids">Kids</button>
+        <button class="filter-pill" data-filter="back">Back Neck</button>
+      </div>
+
+      <div class="row g-4">
+        <!-- card-1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="bridal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Bridal • Rose Gold</span>
+              <img src="/images/Screenshot 2025-12-12 at 1.06.20 PM.png" alt="Bridal saree and blouse set" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Bridal Saree & Blouse Set</h6>
+              <small class="text-muted d-block mb-2">
+                Heavy bridal Aari work across blouse and saree border with rich stones.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹6499</span>
+                <a href="https://www.instagram.com/p/DCGqOdISI3k/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="minimal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Minimal • Festive</span>
+              <img src="/images/Screenshot 2025-12-12 at 1.15.29 PM.png" alt="Pink butta blouse" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Pink Butta Blouse</h6>
+              <small class="text-muted d-block mb-2">
+                All‑over neat buttas on bright pink blouse for small functions and parties.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹1999</span>
+                <a href="https://www.instagram.com/p/C4j43dJBYfy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="minimal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Minimal • Festive</span>
+              <img src="/images/Screenshot 2025-12-12 at 1.16.52 PM.png" alt="Pink sleeve Aari detail" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Pink Sleeve Detail</h6>
+              <small class="text-muted d-block mb-2">
+                Close‑up of dense sleeve Aari work with bead buttas in neat rows.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹2999</span>
+                <a href="https://www.instagram.com/p/CrqPac3LHrQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="bridal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Bridal • Emerald</span>
+              <img src="/images/Screenshot 2025-12-12 at 1.18.41 PM.png" alt="Purple bridal back neck" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Purple Bridal Back Neck</h6>
+              <small class="text-muted d-block mb-2">
+                Bridal back with broad gold border and centre motif for silk sarees.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹1999</span>
+                <a href="https://www.instagram.com/p/DBeNEa6SYWn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-5 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="minimal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Minimal • Festive</span>
+              <img src="/images/Screenshot 2025-12-12 at 1.19.21 PM.png" alt="Teal floral blouse" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Teal Floral Blouse</h6>
+              <small class="text-muted d-block mb-2">
+                Teal blouse with scattered floral motifs and contrast copper sleeve border.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹1999</span>
+                <a href="https://www.instagram.com/p/DBeNVJmS5Rd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-6 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="minimal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Minimal • Festive</span>
+              <img src="/images/WhatsApp Image 2025-12-12 at 11.46.53 AM.jpeg" alt="Teal floral blouse front view" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Teal Floral Blouse Front</h6>
+              <small class="text-muted d-block mb-2">
+                Front view highlighting Aari neckline and body work for daily festive wear.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹2499</span>
+                <a href="https://www.instagram.com/reel/Co9lz0UPQ92/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-7 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="bridal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Bridal • Statement</span>
+              <img src="/images/Screenshot 2025-12-12 at 1.23.29 PM.png" alt="Magenta close neck blouse" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Magenta Close Neck Blouse</h6>
+              <small class="text-muted d-block mb-2">
+                Close‑neck magenta design, double stone rows and heavy sleeve motif.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹2199</span>
+                <a href="https://www.instagram.com/p/DQ8YzdNEnEh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-8 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="minimal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Minimal • Statement</span>
+              <img src="/images/Screenshot 2025-12-12 at 1.21.40 PM.png" alt="Green kids frock back" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Heart Tassel Sleeve Set</h6>
+              <small class="text-muted d-block mb-2">
+                Red and orange sleeve Aari work with matching heart initial tassel.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹3199</span>
+                <a href="https://www.instagram.com/p/DMKp3utyNKs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-9 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="back">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Back Neck • Statement</span>
+              <img src="/images/Screenshot 2025-12-12 at 1.22.08 PM.png" alt="Lavender round yoke blouse" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Lavender Round Yoke Blouse</h6>
+              <small class="text-muted d-block mb-2">
+                Close‑neck lavender blouse, circular yoke and highlighted centre motif.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹1999</span>
+                <a href="https://www.instagram.com/p/DQvnoNlkmW-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-10 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="kids">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Kids • Process</span>
+              <video
+                src="/videos/Pattu pavadai sattai making 💚Kids wear ✨.mp4"
+                muted
+                playsinline
+                class="img-fluid hover-video">
+              </video>
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Kids Pattu Pavadai Work</h6>
+              <small class="text-muted d-block mb-2">
+                Short video of kids pattu pavadai Aari work from base fabric to finish.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹1299</span>
+                <a href="https://www.instagram.com/reel/CxckI_qBYPf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-11 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="bridal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Bridal • Process</span>
+              <video
+                src="/videos/Simple blouse starting rate from 900 only bridal blouse available from 3000✓delivery within 15 t (online-video-cutter.com).mp4"
+                muted
+                playsinline
+                class="img-fluid hover-video">
+              </video>
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Simple Blouse Making</h6>
+              <small class="text-muted d-block mb-2">
+                Process clip showing simple Aari blouse work and starting rate details.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹1999</span>
+                <a href="https://www.instagram.com/reel/Cq8BxKysFXZ/?utm_source=ig_web_copy_link" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-12 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="bridal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Bridal • Process</span>
+              <video
+                src="/videos/AQMMjge7rMgCiglqye9OywHUhKzpBiVtTnJIyUjy6MgtbsZF5-OhRWd4v-BSBafY0R35eOqDgZa5q8JfrFDGUkknm3_pJkMn (online-video-cutter.com).mp4"
+                muted
+                playsinline
+                class="img-fluid hover-video">
+              </video>
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Bridal Blouse Process</h6>
+              <small class="text-muted d-block mb-2">
+                Behind‑the‑scenes video of heavy bridal back neck and sleeve embroidery.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹2999</span>
+                <a href="https://www.instagram.com/reel/C4fSRlwK3kF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-13 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="kids">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Kids • Making</span>
+              <video
+                src="/videos/@sparkling_threads_✨Fabric- Cotton.✨Can be customised any colours.✨Made to order .✨Feel free to .mp4"
+                muted
+                playsinline
+                class="img-fluid hover-video">
+              </video>
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Custom Kids Dress</h6>
+              <small class="text-muted d-block mb-2">
+                Reel showing custom kids dress that can be made in any colour.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹1499</span>
+                <a href="https://www.instagram.com/reel/CiZplTUM04f/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-14 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="bridal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Bridal • Statement</span>
+              <img src="/images/Screenshot 2025-12-14 at 4.54.20 PM.png" alt="Back neck blouse close view" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Bridal Blouse</h6>
+              <small class="text-muted d-block mb-2">
+                Close view bridal blouse with dense stone and bead work.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹3199</span>
+                <a href="https://www.instagram.com/p/Cl5WT4-ryZZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-15 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="back">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Back Neck • Statement</span>
+              <img src="/images/Screenshot 2025-12-14 at 4.53.29 PM.png" alt="Back neck blouse with border" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Contrast Sleeve Border</h6>
+              <small class="text-muted d-block mb-2">
+                Rich magenta back neck blouse with contrast border and sleeve detailing.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹1999</span>
+                <a href="https://www.instagram.com/p/Cl0GQDdLDaF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-16 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="back">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Back Neck • Statement</span>
+              <img src="/images/Screenshot 2025-12-14 at 4.55.00 PM.png" alt="Blue back neck blouse" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Royal Blue Back Neck</h6>
+              <small class="text-muted d-block mb-2">
+                Royal blue blouse with rounded back neck and broad gold border.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹2499</span>
+                <a href="https://www.instagram.com/p/CnUUVdJLULs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-17 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="minimal">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Minimal • Statement</span>
+              <img src="/images/Screenshot 2025-12-14 at 4.56.47 PM.png" alt="Purple back neck blouse" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Light Green Round Yoke Blouse</h6>
+              <small class="text-muted d-block mb-2">
+                Purple round yoke blouse neck layered gold and bead accents.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹3199</span>
+                <a href="https://www.instagram.com/p/DSOx7eMklD7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-18 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="kids">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Kids • Statement</span>
+              <img src="/images/Screenshot 2025-12-14 at 5.11.14 PM.png" alt="Green back neck blouse" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Lime Green Back Neck for kids</h6>
+              <small class="text-muted d-block mb-2">
+                Lime green blouse back with dense floral line and contrast stones.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹999</span>
+                <a href="https://www.instagram.com/p/CixLHaosOU8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-19 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="back">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Back Neck • Statement</span>
+              <img src="/images/Screenshot 2025-12-14 at 4.58.53 PM.png" alt="Green blouse back with jewellery" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Green Princess Cut Back</h6>
+              <small class="text-muted d-block mb-2">
+                Deep green blouse with rounded back, gold border and matching jewellery.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹2999</span>
+                <a href="https://www.instagram.com/p/CljGBt-r-Ub/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card-20 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-card" data-category="back">
+            <div class="gallery-img-wrap">
+              <span class="tag-badge">Back Neck • Statement</span>
+              <img src="/images/Screenshot 2025-12-14 at 5.06.53 PM copy.png" alt="Blue back neck blouse with tassels" />
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Blue Round Yoke Tassels</h6>
+              <small class="text-muted d-block mb-2">
+                Royal blue back neck with round cut, gold edging and thread tassels.
+              </small>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price-tag small">Starts ₹4999</span>
+                <a href="https://www.instagram.com/p/Clu2l5dL4g1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-glass">
+                  <i class="fab fa-instagram me-1"></i>View on Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+      <div class="text-center mt-4">
+        <a href="#contact" class="btn btn-outline-glass px-4 py-2">
+          Want a custom pattern? Share your reference.
+        </a>
+      </div>
+      <div class="text-center mt-4">
+        <a href="https://www.instagram.com/sparkling_threads_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            class="btn insta-explore-btn">
+            <span class="insta-explore-icon">
+            <i class="fab fa-instagram"></i>
+            </span>
+            <span class="insta-explore-text">Explore more on Instagram</span>
+        </a>
+      </div>
+      
+
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-5">
+    <div class="container reveal">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <div class="about-card">
+            <h2 class="section-title mb-3" style="color:rgb(238, 238, 161);">About Sparkling Threads 👗</h2>
+            <p class="mb-3">
+              Sparkling Threads is a boutique Aari studio in Chennai specialising in bridal, festive, and bespoke blouse designs with stitching included.
+            </p>
+            <p class="mb-3">
+              Every piece is drafted to your measurements and hand-embroidered using premium silk, cotton, metallic threads, beads, and sequins.
+            </p>
+            <ul class="list-unstyled about-list mb-0">
+              <li><i class="fas fa-check text-success me-2"></i>Stitching included for all blouse orders</li>
+              <li><i class="fas fa-check text-success me-2"></i>Worldwide delivery with secure packing</li>
+              <li><i class="fas fa-check text-success me-2"></i>Client reference designs accepted and customized</li>
+              <li><i class="fas fa-check text-success me-2"></i>Lead time typically 1–3 weeks depending on complexity</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img src="/images/Gemini_Generated_Image_ctatj9ctatj9ctat.png" alt="About Sparkling Threads"
+               class="img-fluid rounded-4 shadow-lg w-100" style="max-height: 380px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5">
+    <div class="container reveal">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <h2 class="section-title mb-2">Book Your Aari Slot</h2>
+          <p class="section-subtitle mb-3">
+            Share your saree color, occasion, and reference pictures; the team will confirm design, timeline, and quote.
+          </p>
+          <div class="contact-card mb-4">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <h6><i class="fas fa-phone me-2 text-success"></i>Call / WhatsApp</h6>
+                <p class="mb-0">
+                  <a href="https://wa.me/919566208719" class="text-white" target="_blank">
+                    +91 9566208719
+                  </a>
+                </p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <h6><i class="fas fa-envelope me-2 text-warning"></i>Email</h6>
+                <p class="mb-0">sparklingthreads7@gmail.com</p>
+              </div>
+              <div class="col-md-6">
+                <h6><i class="fab fa-instagram me-2 text-danger"></i>Instagram</h6>
+                <p class="mb-0">
+                  <a href="https://www.instagram.com/sparkling_threads_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                     class="text-white">@sparkling_threads</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="contact-card">
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <div class="mb-3">
+                <label class="form-label">Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="name" placeholder="Your full name" required />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Phone / WhatsApp <span class="text-danger">*</span></label>
+                <input 
+                  type="tel" 
+                  class="form-control" 
+                  name="phone" 
+                  id="phone-input"
+                  placeholder="9566208719" 
+                  maxlength="10"
+                  pattern="[0-9]{10}"
+                  title="10-digit phone number only"
+                  required />
+                <div class="form-text">
+                  Enter 10-digit number (no +91 needed)
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Occasion <span class="text-danger">*</span></label>
+                <select class="form-select" name="occasion" required>
+                  <option value="">Choose occasion</option>
+                  <option value="Bridal / Wedding">Bridal / Wedding</option>
+                  <option value="Reception">Reception</option>
+                  <option value="Festival / Pooja">Festival / Pooja</option>
+                  <option value="Office / Daily Wear">Office / Daily Wear</option>
+                  <option value="Kids Function">Kids Function</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Design Idea <span class="text-danger">*</span></label>
+                <textarea 
+                  class="form-control" 
+                  name="message" 
+                  rows="3" 
+                  placeholder="Describe colors, motifs, back neck style, saree details, etc."
+                  required></textarea>
+              </div>
+
+              <div class="text-center mb-4 mt-5">
+                <a href="#" id="whatsapp-btn"
+                   class="btn btn-success btn-lg px-5 py-3 rounded-pill w-100" style="max-width: 400px;">
+                  <i class="fab fa-whatsapp me-2 fs-5"></i>
+                  <span class="fw-semibold">Chat on WhatsApp</span>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Location / Map -->
+  <section id="location" class="py-5">
+    <div class="container reveal">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <h2 class="section-title mb-2">Visit Our Studio</h2>
+          <p class="section-subtitle mb-3">
+            Sparkling Threads studio is located in Anakaputhur, Chennai, easily accessible from the airport side and south-west suburbs.
+          </p>
+          <ul class="list-unstyled about-list">
+            <li><i class="fas fa-location-dot me-2 text-danger"></i>Anakaputhur, Chennai, Tamil Nadu</li>
+            <li><i class="fas fa-clock me-2 text-warning"></i>Timings: 10:00 AM – 8:00 PM (Mon–Sat)</li>
+            <li><i class="fas fa-plane-departure me-2 text-info"></i>Approx. 15–25 mins drive from Chennai Airport (traffic dependent)</li>
+          </ul>
+        </div>
+        <div class="col-lg-7">
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.377723178456!2d80.1290!3d12.9730!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a528c0f4c3a7e41%3A0x5e8c3b3a3e5f4e9!2sAnakaputhur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000001!5m2!1sen!2sin"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-3 text-center">
+    <div class="container small">
+      © 2025 Sparkling Threads · Luxury Aari Work Studio · Chennai
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Simple scroll reveal
+  const revealEls = document.querySelectorAll(".reveal");
+  const galleryCards = document.querySelectorAll(".gallery-card");  // ← only here
+
+  const onScroll = () => {
+    const trigger = window.innerHeight * 0.85;
+    revealEls.forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < trigger) el.classList.add("visible");
+    });
+    galleryCards.forEach((card) => {
+      const top = card.getBoundingClientRect().top;
+      if (top < trigger) card.classList.add("visible");
+    });
+  };
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+
+  // Hover video play/pause
+  document.querySelectorAll('.hover-video').forEach(video => {
+    video.addEventListener('mouseenter', () => {
+      video.play();
+    });
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+
+  // WhatsApp button validation
+  document.getElementById('whatsapp-btn').addEventListener('click', function(e) {
+    const phone = document.getElementById('phone-input').value;
+    if (phone.length !== 10 || !/^\d{10}$/.test(phone)) {
+      e.preventDefault();
+      alert('Please enter a valid 10-digit phone number!');
+      document.getElementById('phone-input').focus();
+      return false;
+    }
+    const occasion = document.querySelector('[name="occasion"]').value || 'Not specified';
+    const message = document.querySelector('[name="message"]').value || 'Interested in Aari work';
+    const name = document.querySelector('[name="name"]').value || 'Website visitor';
+
+    const whatsappText = encodeURIComponent(
+      `Hi, ${name}! I'm interested in Aari work.\n\nOccasion: ${occasion}\nDetails: ${message}`
+    );
+    this.href = `https://wa.me/919566208719?text=${whatsappText}`;
+  });
+
+  // Form submission
+  document.querySelector('form').addEventListener('submit', function(e) {
+    const submitBtn = this.querySelector('button[type="submit"]');
+    if (!submitBtn) return;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i><span class="fw-semibold">Sending...</span>';
+  });
+
+  // filter pills
+  const filterButtons = document.querySelectorAll('.filter-pill');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // active button style
+      document.querySelector('.filter-pill.active')?.classList.remove('active');
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      galleryCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.parentElement.style.display = '';   // show col
+        } else {
+          card.parentElement.style.display = 'none'; // hide col
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
